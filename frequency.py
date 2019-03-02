@@ -1,7 +1,7 @@
 # Given two arrays write a function to find out if two arrays have the 
 # same frequency of digits
 # Examples
-one = [[1,2,3,4], [1,2,3,4,4]]
+one = [[1,2,3,4], [1,2,3,4]]
 # [1,2,3,4], [1,4,5,6] = two
 # [1,2,3,4], [1,4,4,2] = three
 # [1,2,3,4], [1,4,3,2] = four
@@ -27,6 +27,9 @@ def create_frequency(array):
     return frequency_dict
 
 def compare_frequencies(combined_array):
+
+    if len(combined_array[0]) != len(combined_array[1]):
+        return False
     # create frequency dict for first array
     first_frequency = create_frequency(combined_array[0])
     # create frequency dict for second array
