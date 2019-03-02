@@ -3,41 +3,41 @@
 // Examples
 let one = [[1,2,3,4], [2,1,3,4]];
 
-function create_frequency(array) {
-    let frequency_dict = {};
+function createFrequency(array) {
+    let frequencyDict = {};
 
     // loop through numbers in the array
     for (i = 0; i < array.length; i++) {
         // if num exists in array already...
         // add one to its value
-        if (frequency_dict[array[i]]) {
-            frequency_dict[array[i]] += 1;
+        if (frequencyDict[array[i]]) {
+            frequencyDict[array[i]] += 1;
         }
         else {
             // initialize key value pair with value of 1
-            frequency_dict[array[i]] = 1;
+            frequencyDict[array[i]] = 1;
         };
     };
     // return frequency dictionary for that array
-    return frequency_dict;;
+    return frequencyDict;;
 }
 
-function compare_frequencies(combined_array) {
+function compareFrequencies(combinedArray) {
     // if the length of arrays is not the same, returns false right away
-    if (combined_array[0].length != combined_array[1].length) {
+    if (combinedArray[0].length != combinedArray[1].length) {
         return false;
     };
     // create frequency dict for first array
-    const first_frequency = create_frequency(combined_array[0]);
-    const second_frequency = create_frequency(combined_array[1]);
+    const firstFrequency = createFrequency(combinedArray[0]);
+    const secondFrequency = createFrequency(combinedArray[1]);
     // loop through keys in first frequency dict
-    for (key in first_frequency) {
+    for (key in firstFrequency) {
         // if that key does not exist in second frequency dictionary
-        if (!second_frequency[key]) {
+        if (!secondFrequency[key]) {
             return false;
         };
         // finally if second frequency key's value does not match first frequency
-        if (first_frequency[key] != second_frequency[key]) {
+        if (firstFrequency[key] != secondFrequency[key]) {
             return false;
         }
     }
@@ -45,5 +45,5 @@ function compare_frequencies(combined_array) {
     return true;
 };
 
-console.log(compare_frequencies(one));
+console.log(compareFrequencies(one));
 
